@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "npm run build & node dist/server.js",
+    "start": "npm run build && node dist/server.js",
     "build": "tsc -p tsconfig.json --pretty"
   },
   "dependencies": {
