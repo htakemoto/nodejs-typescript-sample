@@ -12,7 +12,8 @@ Using Node.js + Express + TypeScript.
 
 1) Open command line and install bower and grunt-cli in global dependency
 
-    $ npm install -g grunt-cli
+    $ npm install -g typescript
+    $ npm install -g typings
 
 2) Go to the root folder of this project on command line
 
