@@ -1,0 +1,15 @@
+{
+  "name": "Express-4x-Typescript-Sample",
+  "version": false,
+  "ambientDependencies": {
+    "express": "github:DefinitelyTyped/DefinitelyTyped/express/express.d.ts#0cd5f0a1482dc3149f5446b1d885ef6ac7c57720",
+    "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#ca92a5b250433c38230b5f4138b36453862342bf",
+    "serve-static": "github:DefinitelyTyped/DefinitelyTyped/serve-static/serve-static.d.ts#0cd5f0a1482dc3149f5446b1d885ef6ac7c57720",
+    "mime": "github:DefinitelyTyped/DefinitelyTyped/mime/mime.d.ts#0cd5f0a1482dc3149f5446b1d885ef6ac7c57720",
+    "body-parser": "github:DefinitelyTyped/DefinitelyTyped/body-parser/body-parser.d.ts#0cd5f0a1482dc3149f5446b1d885ef6ac7c57720",
+    "winston": "github:DefinitelyTyped/DefinitelyTyped/winston/winston.d.ts#0cd5f0a1482dc3149f5446b1d885ef6ac7c57720",
+    "lodash": "github:DefinitelyTyped/DefinitelyTyped/lodash/lodash.d.ts#0cd5f0a1482dc3149f5446b1d885ef6ac7c57720",
+    "cors": "github:DefinitelyTyped/DefinitelyTyped/cors/cors.d.ts#0cd5f0a1482dc3149f5446b1d885ef6ac7c57720",
+    "jsonwebtoken": "github:DefinitelyTyped/DefinitelyTyped/jsonwebtoken/jsonwebtoken.d.ts#81ebfb3d08cd608a7c801668a6d5f7b2ea9ecc38"
+  }
+}
