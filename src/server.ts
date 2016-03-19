@@ -40,15 +40,16 @@ class Main {
             var message = {
                 "status": err.status,
                 "message": err.message
-            }
+            };
             logger.error(JSON.stringify(message));
             res.send(message);
         });
     }
 
     public start(): void {
-        var server = http.createServer(this.express).listen(this.express.get('port'), function () {
-            logger.info('listening in http://localhost:');
+        const server = http.createServer(this.express).listen(this.express.get('port'), function () {
+            let port = server.address().port;
+            logger.info('listening in http://localhost:' + port);
         });
     }
 }

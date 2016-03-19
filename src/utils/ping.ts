@@ -10,7 +10,7 @@ export default class Ping {
         }
     }
 
-    private delay(ms: number) {
+    private async delay(ms: number) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 }

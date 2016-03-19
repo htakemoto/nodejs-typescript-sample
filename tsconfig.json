@@ -4,7 +4,8 @@
     "target": "ES6",
     "module": "commonjs",
     "sourceMap": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "noImplicitReturns": false
   },
   "exclude": [
     "node_modules",
