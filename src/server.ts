@@ -46,6 +46,10 @@ class Main {
         });
     }
 
+    public static bootstrap(): Main {
+       return new Main();
+    }
+
     public start(): void {
         const server = http.createServer(this.express).listen(this.express.get('port'), function () {
             let port = server.address().port;
@@ -54,5 +58,5 @@ class Main {
     }
 }
 
-var main: Main = new Main();
+var main = Main.bootstrap();
 main.start();

@@ -36,7 +36,7 @@ Using Node.js + Express + TypeScript.
 
 1. Run application
 2. Point your browser to [http://localhost:3000/test](http://localhost:3000/test) with POST method and put `{"username":"admin","password":"secret"}` in Payload.
-3. You will see `token` as a respoinse
+3. You will see `token` as a response
 
 
 ### Access to a protected endpoint (Authentication)
