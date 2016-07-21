@@ -1,4 +1,4 @@
-/// <reference path='../typings/main.d.ts' />
+/// <reference path='../typings/index.d.ts' />
 
 import * as http from 'http';
 import * as express from 'express';
