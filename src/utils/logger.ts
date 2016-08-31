@@ -11,8 +11,8 @@ const logger = new winston.Logger({
             handleExceptions: true,
             json: false,
             colorize: false,
-            timestamp: function() { return formatCurrentTime(); },
-            formatter: function(args) {
+            timestamp: function () { return formatCurrentTime(); },
+            formatter: function (args) {
                 var logMessage = formatCurrentTime() + '  ' + args.level.toUpperCase() + ': ';
                 if (_.isEmpty(args.meta)) {
                     logMessage += args.message;

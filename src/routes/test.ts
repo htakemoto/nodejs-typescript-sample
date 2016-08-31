@@ -15,8 +15,8 @@ class TestController {
 
     // url: [POST] /test
     // payload: {"username":"admin","password":"secret"}
-    private getToken(req, res, next):void {
-        var user:User = new User(req.body.username, req.body.password, 'test@sample.com');
+    private getToken(req, res, next): void {
+        var user: User = new User(req.body.username, req.body.password, 'test@sample.com');
         logger.info("user: %s", JSON.stringify(user));
 
         // authenticate user
@@ -33,38 +33,35 @@ class TestController {
 
     // url: [GET] /test
     // headers: 'Authorization':'YOURTOKEN'
-    private checkAuth(req, res, next):void {
+    private async checkAuth(req, res, next): Promise<void> {
         var token = req.headers['authorization'];
         logger.info(token);
-        process(token);
 
-        async function process(jwt:string) {
-            let decoded;
-            // just do fake pings without any reason
-            var ping = new Ping();
-            try {
-                await ping.ping();
-            } catch (err) {
-                let error = new Error(err.message);
-                error['status'] = 500;
-                return next(error);
-            }
-
-            // validate token
-            try {
-                decoded = await Jwt.validateJwt(jwt);
-                logger.debug(decoded);
-            } catch (err) {
-                logger.error(err);
-                if (err.name == 'TokenExpiredError') {
-                    err.message = 'Access token has been expired'
-                }
-                let error = new Error(err.message);
-                error['status'] = 401;
-                return next(error);
-            }
-            res.json({ message: 'authorized'});
+        let decoded;
+        // just do fake pings without any reason
+        var ping = new Ping();
+        try {
+            await ping.ping();
+        } catch (err) {
+            let error = new Error(err.message);
+            error['status'] = 500;
+            return next(error);
         }
+
+        // validate token
+        try {
+            decoded = await Jwt.validateJwt(token);
+            logger.debug(decoded);
+        } catch (err) {
+            logger.error(err);
+            if (err.name == 'TokenExpiredError') {
+                err.message = 'Access token has been expired'
+            }
+            let error = new Error(err.message);
+            error['status'] = 401;
+            return next(error);
+        }
+        res.json({ message: 'authorized' });
     }
 }
 

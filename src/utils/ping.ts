@@ -1,7 +1,7 @@
 import logger from '../utils/logger';
 
 export default class Ping {
-    delayInMilliSeconds:number = 300;
+    delayInMilliSeconds: number = 300;
 
     async ping() {
         for (var i = 0; i < 10; i++) {

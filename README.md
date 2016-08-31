@@ -10,21 +10,15 @@ Using Node.js + Express + TypeScript.
 
 ## Quick Start
 
-1) Open command line and install bower and grunt-cli in global dependency
-
-    $ npm install -g typescript
-    $ npm install -g typings
-
-2) Go to the root folder of this project on command line
+1) Go to the root folder of this project on command line
 
     $ cd /PROJECT-ROOT
 
-3) Install dependency files
+2) Install dependency files
 
     $ npm install
-    $ typings install
 
-5) Execute (default browser will open)
+3) Execute (default browser will open)
 
     $ npm start
 
@@ -42,5 +36,5 @@ Using Node.js + Express + TypeScript.
 ### Access to a protected endpoint (Authentication)
 
 1. Run application
-2. Point your browser to [http://localhost:3000/test](http://localhost:3000/test) with GET method and add a custom header `Authorization` with the token you got from the above step.
+2. Make a request to [http://localhost:3000/test](http://localhost:3000/test) with GET method and add a custom header `Authorization` with the token you got from the above step.
 3. You can check async/await process in log
