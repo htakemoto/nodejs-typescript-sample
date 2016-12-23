@@ -3,7 +3,6 @@ import * as path from 'path';
 import * as winston from 'winston';
 import * as _ from 'lodash';
 
-winston["emitErrs"] = true;
 const logger = new winston.Logger({
     transports: [
         new winston.transports.Console({
@@ -12,7 +11,7 @@ const logger = new winston.Logger({
             json: false,
             colorize: false,
             timestamp: function () { return formatCurrentTime(); },
-            formatter: function (args) {
+            formatter: function (args: any) {
                 var logMessage = formatCurrentTime() + '  ' + args.level.toUpperCase() + ': ';
                 if (_.isEmpty(args.meta)) {
                     logMessage += args.message;
@@ -38,7 +37,7 @@ function formatCurrentTime() {
     return date.getFullYear() + "-" + month + "-" + d + " " + h + ":" + m + ":" + s + "." + ms;
 }
 
-function addZero(x, n) {
+function addZero(x: any, n: any): string {
     while (x.toString().length < n) {
         x = "0" + x;
     }

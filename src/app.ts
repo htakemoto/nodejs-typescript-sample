@@ -1,39 +1,40 @@
-/// <reference path='../typings/index.d.ts' />
-
 import * as http from 'http';
 import * as express from 'express';
 import * as cors from 'cors';
 import * as bodyParser from 'body-parser';
 var morgan = require('morgan');
-import test from './routes/test';
+import testController from './routes/test';
 import logger from './utils/logger';
-
 
 class App {
 
     public static run() {
-        let exp = express();
+        let app = express();
+        let router = express.Router();
         let port = process.env.PORT || 3000;
-        exp.set('port', port);
+        app.set('port', port);
 
         // access log
-        exp.use(morgan('combined', {
+        app.use(morgan('combined', {
             stream: {
-                write: function (message, encoding) {
+                write: function (message: any, encoding: any) {
                     logger.info(message);
                 }
             }
         }));
 
-        exp.use(bodyParser.urlencoded({ extended: true }));
-        exp.use(bodyParser.json());
-        exp.use(cors());
+        app.use(bodyParser.urlencoded({ extended: true }));
+        app.use(bodyParser.json());
+        app.use(cors());
 
         // routing
-        exp.use('/test', test);
+        router.post('/test', testController.getToken);
+        router.get('/test', testController.checkAuth);
+        app.use('/', router);
 
         // error handler
-        exp.use(function (err: any, req: express.Request, res: express.Response, next: express.NextFunction) {
+        app.use(function (err: any, req: express.Request, res: express.Response, next: express.NextFunction) {
+            logger.error(err.stack)
             res.status(err.status || 500);
             let message = {
                 "status": err.status,
@@ -43,7 +44,8 @@ class App {
             res.send(message);
         });
 
-        const server = http.createServer(exp).listen(exp.get('port'), function () {
+        const server = http.createServer(app);
+        server.listen(app.get('port'), function () {
             let port = server.address().port;
             logger.info('listening in http://localhost:' + port);
         });

@@ -5,10 +5,11 @@
     "module": "commonjs",
     "sourceMap": true,
     "outDir": "dist",
-    "noImplicitReturns": false
+    "noImplicitReturns": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true
   },
   "exclude": [
-    "node_modules",
-    "typings"
+    "node_modules"
   ]
 }
